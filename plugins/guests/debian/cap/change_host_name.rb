@@ -92,7 +92,7 @@ module VagrantPlugins
           interfaces.each do |iface|
             logger.debug("Restarting interface #{iface} on guest #{machine.name}")
             if nettools
-             restart_command = "ifdown #{iface};ifup #{iface}"
+             restart_command = "ifdown #{iface};ifup #{iface};true"
             else
              restart_command = "systemctl stop ifup@#{iface}.service;systemctl start ifup@#{iface}.service"
             end
